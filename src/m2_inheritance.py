@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (4 pts)
+# DONE: 1. (4 pts)
 #
 #   For this module, we are going to build off our Pet class that we created in
 #   m2 of the session 16 coding exercises.
@@ -26,9 +26,26 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Pet:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def __str__(self):
+        return f"Name: {self.name}, Age: {self.age}"
+    
+    def speak(self):
+        print(f"{self.name}: Hi! I'm your friend!")
+
+class Dog(Pet):
+    def fetch(self):
+        print(f"{self.name} ran to get the stick!")
+    
+    def speak(self):
+        print(f"{self.name}: Bark! Bark! Bark!")
 
 ###############################################################################
-# TODO: 2. (4 pts)
+# DONE: 2. (4 pts)
 #
 #   Now, write your own class of whatever type of pet you wish.
 #
@@ -46,9 +63,20 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+class Guinea_Pig(Pet):
+    def __init__(self, name, age, color, favorite_food):
+        super().__init__(name, age)
+        self.color = color
+        self.favorite_food = favorite_food
+    
+    def food(self):
+        print(f"I'm going to eat a snack. Do you want some of my {self.favorite_food}?")
+    
+    def art(self):
+        print(f"{self.name} is painting a horse. {self.name} wants it to be {self.color}. It will be so pretty!")
 
 ###############################################################################
-# TODO: 3. (4 pts)
+# DONE: 3. (4 pts)
 #
 #   Now let's use our classes!
 #
@@ -71,4 +99,15 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    dog = Dog("Bonnie", 3)
+    print(dog)
+    gp = Guinea_Pig("Dax", 7, "teal", "hay")
+    print(gp)
+    dog.fetch()
+    gp.art()
+    dog.speak()
+    gp.speak()
+    gp.food()
 
+main()
